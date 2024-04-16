@@ -16,6 +16,8 @@ public class Ex25AnonyMain {
 		System.out.println("hotfix 작업공간에서 적음");
 		
 		System.out.println("main 작업공간에서 추가");
+		System.out.println("hotfix 작업공간에서 행 추가함");
+
 	}
 
 }
