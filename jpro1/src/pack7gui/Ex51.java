@@ -65,7 +65,7 @@ public class Ex51 extends JFrame implements ActionListener {
 		// 2행
 		JPanel panel2 = new JPanel();
 		JLabel lbl2 = new JLabel("국어 : ");
-		txt2 = new JTextField("",5);
+		txt2 = new JTextField("",5); // 5는 글자칸 크기 정한값
 		JLabel lbl3 = new JLabel("영어 : ");
 		txt3 = new JTextField("",3);
 		JLabel lbl4 = new JLabel("수학 : ");
@@ -112,19 +112,20 @@ public class Ex51 extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		// 총점과 평균에 관한 작성
-		if(e.getSource() == btnCalc) {
+		// 확인버튼 누르면 나오는 설정
+		if(e.getSource() == btnCalc) { // e.getSource 소스가 btnCalc랑 같으면..
+			// 이름
 			if(txt1.getText().equals("")) {
 				lblResult4.setText("이름 입력해");
 				txt1.requestFocus();
 				return;	
 				
 			}
+			// 국어점수
 			if(txt2.getText().equals("")) {
 				lblResult4.setText("국어점수 입력해");
 				txt2.requestFocus();
 				return;
-				
 				
 			}try {num1 = Integer.parseInt(txt2.getText()); // num1: 국어점수 입력 숫자
 				
@@ -133,6 +134,7 @@ public class Ex51 extends JFrame implements ActionListener {
 				txt2.requestFocus();
 				return;
 			}
+			// 영어점수
 			 if(txt3.getText().equals("")) {
 				lblResult4.setText("영어점수 입력해");
 				txt3.requestFocus();
@@ -145,6 +147,7 @@ public class Ex51 extends JFrame implements ActionListener {
 				txt3.requestFocus();
 				return;
 			}
+			// 수학점수
 			if(txt4.getText().equals("")) {
 				
 				lblResult4.setText("수학점수 입력해");
@@ -158,6 +161,7 @@ public class Ex51 extends JFrame implements ActionListener {
 				return;
 			}
 			
+			// 계산 
 			hap=num1 + num2+num3; // 합계
 			lblResult1.setText("결과: " + hap);
 			avg=hap/3.; // 3.를 쓰면 정수처리
@@ -197,7 +201,7 @@ public class Ex51 extends JFrame implements ActionListener {
 			}
 		
 				
-			// 리셋버튼 추가
+			// 리셋버튼 설정
 		}else if(e.getSource() == btnReset) {
 			txt1.setText("");
 			txt2.setText("");
