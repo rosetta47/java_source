@@ -90,12 +90,17 @@ private void layInit() { // 디자인
 				//부분자료 읽기
 				String name = name2.getText();
 				String gjumin = jumin.getText();
-				sql = "SELECT jikwon_no, jikwon_name, buser_name, buser_tel, jikwon_jik from jikwon inner JOIN buser ON jikwon.buser_num = buser.buser_no inner JOIN gogek ON jikwon.jikwon_no = gogek.gogek_damsano where gogek_name=? and gogek_jumin=?";
-				
-				pstmt = conn.prepareStatement(sql);  //위에 ?가 있으면 바로 다 받지말고 아래 문장 써야되
-				pstmt.setString(1, name); // 첫번째 ?에 no가 대응, 위에 36줄 no랑 타입맞퉈야되
-				pstmt.setString(2, gjumin);
-				rs = pstmt.executeQuery();
+				try {
+					sql = "SELECT jikwon_no, jikwon_name, buser_name, buser_tel, jikwon_jik from jikwon inner JOIN buser ON jikwon.buser_num = buser.buser_no inner JOIN gogek ON jikwon.jikwon_no = gogek.gogek_damsano WHERE gogek_name=? AND gogek_jumin=?";
+					
+					pstmt = conn.prepareStatement(sql);  //위에 ?가 있으면 바로 다 받지말고 아래 문장 써야되
+					pstmt.setString(1, name); // 
+					pstmt.setString(2, gjumin);
+					rs = pstmt.executeQuery();
+					
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
 				
 				display();
 				
