@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
+// 내가 풀어본것
 public class DbTest6PrepEx1 extends JFrame implements ActionListener {
 	private JLabel lblcode, lblsang, lblsu, lbldan;
 	private JTextField tcode, tsang, tsu, tdan, tpay;
@@ -52,7 +52,7 @@ public class DbTest6PrepEx1 extends JFrame implements ActionListener {
 		panel1.add(tcode);
 
 		JLabel lblsang = new JLabel("품명 :");
-		tsang = new JTextField("", 7);
+		tsang = new JTextField("", 5);
 		panel1.add(lblsang);
 		panel1.add(tsang);
 
