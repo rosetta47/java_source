@@ -18,134 +18,127 @@ import javax.swing.JTextField;
 
 public class DbTest6PrepEx2 extends JFrame implements ActionListener {
 	private JTextField name2, jumin;
-	int num1;	// 주민번호
+	int num1; // 주민번호
 	String name; // 고객명
 	String gjumin;
-	
+
 	JButton btnC = new JButton("확인");
-	
+
 	JTextArea txtResult = new JTextArea();
-	
+
 	String sql = "";
 
-	
 	Connection conn;
 	PreparedStatement pstmt;
-	ResultSet rs;
+	ResultSet rs, rs2;
 
 	public DbTest6PrepEx2() {
 		layInit();
 		accDB();
-		
+
 		setBounds(300, 400, 400, 500);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	
+
 	}
 
+	private void layInit() { // 디자인
 
-private void layInit() { // 디자인 
-		
-		setLayout(new GridLayout(5,1));
-		
+		setLayout(new GridLayout(5, 1));
+
 		JPanel panel1 = new JPanel();
 		name2 = new JTextField("", 5);
 		panel1.add(new JLabel("고객명 :"));
 		panel1.add(name2);
 		add("North", panel1);
-		
+
 		JPanel panel2 = new JPanel();
 		jumin = new JTextField("", 15);
 		panel2.add(new JLabel("주민번호 :"));
 		panel2.add(jumin);
-		add("North",panel2);
+		add("North", panel2);
 		panel2.add(btnC);
-		
+
 		JPanel panel3 = new JPanel();
 		panel3.add(txtResult);
-		add("Center",panel3);
-		
+		add("Center", panel3);
+
 		txtResult.setEditable(false);
 		JScrollPane pane = new JScrollPane(txtResult);
 		add(pane);
-		
+
 		btnC.addActionListener(this);
-		
-		
+
 	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
-			if(e.getSource() == btnC) {
-				if(name2.getText().equals("")) {
-					txtResult.setText("고객명 입력");
-					return;
-				}
-				if(jumin.getText().equals("")) {
-					txtResult.setText("주민번호");
-					return;
-				}
-				txtResult.setText(null);
-				
-				//부분자료 읽기
-				String name = name2.getText();
-				String gjumin = jumin.getText();
+			if (e.getSource() == btnC) {
+
 				try {
-					sql = "SELECT jikwon_no, jikwon_name, buser_name, buser_tel, jikwon_jik from jikwon inner JOIN buser ON jikwon.buser_num = buser.buser_no inner JOIN gogek ON jikwon.jikwon_no = gogek.gogek_damsano WHERE gogek_name=? AND gogek_jumin=?";
-					
-					pstmt = conn.prepareStatement(sql);  //위에 ?가 있으면 바로 다 받지말고 아래 문장 써야되
-					pstmt.setString(1, name); // 
-					pstmt.setString(2, gjumin);
-					rs = pstmt.executeQuery();
-					
+					name = name2.getText();
+					gjumin = jumin.getText();
 				} catch (Exception e2) {
 					// TODO: handle exception
 				}
-				
-				display();
-				
+				txtResult.setText(null);
+				// 부분자료 읽기
+				try {
+
+					sql = "SELECT jikwon_no, jikwon_name, buser_name, buser_tel, jikwon_jik from jikwon inner JOIN buser ON jikwon.buser_num = buser.buser_no inner JOIN gogek ON jikwon.jikwon_no = gogek.gogek_damsano WHERE gogek_name=? AND gogek_jumin=?";
+
+					pstmt = conn.prepareStatement(sql); 
+					pstmt.setString(1, name); //
+					pstmt.setString(2, gjumin);
+					rs = pstmt.executeQuery();
+
+					if (rs.next()) {
+						display();
+					}
+				} catch (Exception e2) {
+					System.out.println("try err : " + e2);
+				}
+
 			}
 		} catch (Exception e2) {
-			// TODO: handle exception
+			System.out.println("acper err : " + e2);
 		}
-		
+
 	}
-	
-	private void accDB() { //자료추가 마리아db연결
+
+	private void accDB() { // 자료추가 마리아db연결
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
-			
+
 			processDB();
 		} catch (Exception e) {
-			System.out.println("accDB err : " + e); 	// 연결에 실패할 수 있으니 오류를 뿌려준다.
+			System.out.println("accDB err : " + e); // 연결에 실패할 수 있으니 오류를 뿌려준다.
 		}
 	}
-	
-	private void processDB() { //마리아db에 있는 자료 불려오기
+
+	private void processDB() { // 마리아db에 있는 자료 불려오기
 		try {
 			String url = "jdbc:mariadb://localhost:3306/test"; // 3306(포트번호)
 			conn = DriverManager.getConnection(url, "root", "123");
-			
+
 			pstmt = conn.prepareStatement(sql);
-			display();
+		
 		} catch (Exception e) {
 			System.out.println("processDB err : " + e);
 		}
 	}
-	
+
 	private void display() { // 문제 풀기
 		try {
-			sql = "SELECT jikwon_no, jikwon_name, buser_name, buser_tel, jikwon_jik from jikwon inner JOIN buser ON jikwon.buser_num = buser.buser_no inner JOIN gogek ON jikwon.jikwon_no = gogek.gogek_damsano";
+			sql = "SELECT jikwon_no, jikwon_name, buser_name, buser_tel, jikwon_jik from jikwon inner JOIN buser ON jikwon.buser_num = buser.buser_no inner JOIN gogek ON jikwon.jikwon_no = gogek.gogek_damsano"; //여기에 고객명과 주민번호 입력하면 담당직원번호 떠야되
 			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
+			rs2 = pstmt.executeQuery();
+
 			txtResult.setText("사번\t이름\t부서명\t부서번호\t직책\n");
-			while(rs.next()) {
-				String imsi = rs.getInt(1) + "\t" + 
-								rs.getString(2) + "\t " + 
-								rs.getString(3) + "\t " +
-								rs.getString(4) + "\t " +
-								rs.getString(5) + "\n";
+			while (rs2.next()) {
+				String imsi = rs2.getInt(1) + "\t" + rs2.getString(2) + "\t " + rs2.getString(3) + "\t " + rs.getString(4)
+						+ "\t " + rs2.getString(5) + "\n";
 				txtResult.append(imsi);
 			}
 		} catch (Exception e) {
