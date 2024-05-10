@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 
 public class Net4TestServer {
 
@@ -25,15 +26,15 @@ public class Net4TestServer {
 		Socket socket = null; // TCP (전화기로 생각해) 기반의 통신용 클래스(파일)
 		try {
 			ss = new ServerSocket(9999); // 서버 소켓
-			System.out.println("server start...");
+			System.out.println("서버 서비스 시작...");
 			socket = ss.accept(); 
 			// 서버 소켓으로 부터 클라이언트과 컴과 통신하기 위한 개별 소켓을 만듬(accept)
 			// 무한루프에 빠짐 -> listen 이 있음 => 클라이언트가 들어와야지 나옴
 			
 			BufferedReader reader = new BufferedReader( // 클라이언트가 정보를 주면 받고 땡할꺼임
-					new InputStreamReader(socket.getInputStream()));
+					new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
 			String data = reader.readLine(); // 메세지만 일방적으로 받음
-			System.out.println("receive data : "  + data);
+			System.out.println("수신 자료 : "  + data);
 			
 			reader.close();
 			socket.close();
