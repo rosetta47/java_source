@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS</title>
+<!-- html 주석임 -->
+<style type="text/css">
+/* 인터널 방식(internal)을 사용함 css주석 */
+h1 { 
+	font-size: 50px; font-family: 궁서; color: fuchsia;
+}
+.c1 {
+	color: orange; font-family: 돋움,궁서,serif,"Times New Roman"
+}
+
+#i1 {
+	color: blue; font-style: italic;
+}
+
+</style>
+<!-- External 방식임 link -->
+<link rel="stylesheet" type="text/css" href="mycss/ex1.css" />
+
+</head>
+<body>
+<h2>** CSS 적용하기 **</h2>
+<!-- 프로그래머 입장에서 할거임  -->
+<span style="font-size: 30px;color: aqua;">인라인 방식</span>
+<!-- h태그는 블럭처리임  -->
+<h1>인터널 방식</h1>
+<h2>안녕하세요</h2>
+<h1>반가워요</h1>
+<p class="c1">p 클래스 사용1(class는 중복가능)</p>
+<h2 class="c1">h2 클래스 사용2</h2>
+<p id="i1">p 아이디 사용(id 중복 불가)</p>
+<div id="i2">div 태그 별도로 css파일 작성하고 적용해보기</div>
+
+<p>* 입력 양식 * </p>
+<form>
+<table border="5">
+<tr>
+	<td>id : </td>
+	<td><input type="text" name="id" id="id" class="id"></td>
+	<!-- 위에 id, class은 옵션이야 그런데 자바스크립트에서 쓰러면 쓰는게 좋아 -->
+</tr>
+<tr>
+	<td>pwd : </td>
+	<td><input type="text" name="pwd" id="id" class="id"></td>
+</tr>
+<tr>
+	<td colspan="2">
+		<input type="button" id="btnOk" class="btnOk" value="전송" />
+	</td>
+</tr>
+</table>
+</form>
+<br>
+<a href="https://www.naver.com">네이버 만세</a><br>
+<a href="https://www.daum.net">다음 만세</a><br>
+<br>
+<i>i 태그</i>
+<strong><span>span tag</span></strong>
+
+<br><b>셀렉터 : 부모, 자식, 자손 관계</b>
+<b>b tag</b>
+<div><b>div 속에 b tag</b></div>
+<!-- div의 자손:b tag -->
+<div><span><b>div 속에 span 안에 b태그</b></span></div>
+<div><b id="hi">div 속 b태그:id가 hi</b></div>
+<div><b class="hello">div 속 b태그:class가 hello</b></div>
+<hr>
+<div id="pic">배경 이미지</div>
+<br>
+<img title="good" src="images/snow.png" width="150">
+
+
+<pre>
+-
+-
+-
+-
+-
+</pre>
+</body>
+</html>

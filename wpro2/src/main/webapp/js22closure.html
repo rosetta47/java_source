@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+클로저는 주변 상태(어휘적 환경)에 대한 참조와 함께 묶인(포함된) 함수의 조합입니다.
+ 즉, 클로저는 내부 함수에서 외부 함수의 범위에 대한 접근을 제공합니다. 
+JavaScript에서 클로저는 함수 생성 시 함수가 생성될 때마다 생성됩니다.<br>
+클로저는 어떤 함수와 해당함수가 선언된 렉시컬 환경의 조합이다.(내부함수)
+'상위함수'보다 '하위함수'가 더 오래 살아있는 경우를 말한다.
+<hr>
+<script type="text/javascript">
+function func(){
+	let name = 'tom';
+	let no = 1; //지역변수 함수내부에서만 유효
+	
+	function displayName(){ //내부함수
+		console.log(name + no);
+		no++;
+	}
+	displayName();
+}
+
+func();//tom1
+func();//tom1
+func();//tom1
+
+//클로저 사용
+function makeFunc(){
+	let name = 'james';
+	let no = 1; //지역변수 
+	
+	function displayName(){ //내부함수
+		console.log(name + no);
+		no++;
+	}
+	return displayName; //이게 클로저 : 내부함수의 주소를 반환함 그래서()없어야되
+}
+
+let myFunc = makeFunc();//displayName 함수의 주소를 치환
+myFunc();//james1
+myFunc();//james2
+myFunc();//james3 : 내부주소에서 no++ 영향을 받기 때문에 증가됨
+
+function makeAdd(x){
+	return function(y){ // 함수의 실행 결과가 아니라 함수를 반환
+		return x + y;
+	};
+}
+
+let tot = makeAdd(5);
+console.log(tot(3));
+console.log(tot(5));
+let tot2 = makeAdd(10);
+console.log(tot2(3));
+console.log(tot2(5));
+
+</script>
+</body>
+</html>

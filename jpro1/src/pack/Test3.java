@@ -63,9 +63,9 @@ public class Test3 {
 		
 		//boolean a1 = false, b1 = true, c1;
 		boolean a1 = true, b1 = false, c1;
-		c1 = a1 || b1;  // or
+		c1 = a1 || b1;  // or 일때 결과값 c1 : true
 		System.out.println("c1 : " + c1);
-		c1 = a1 && b1;  // and
+		c1 = a1 && b1;  // and 일때 결과값 c1 : false
 		System.out.println("c1 : " + c1);
 		
 		System.out.println();

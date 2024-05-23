@@ -1,0 +1,64 @@
+@charset "UTF-8";
+/* css 주석 */
+
+#i2 {
+	background-color: yellow;
+	color: fuchsia;
+	font-size: 20px
+}
+h1,h2{ /* 취소선 */
+	text-decoration: line-through;
+}
+
+table {width: 70%; margin-bottom: 10px; border: 1px solid #dddddd;}
+
+table tr td {
+	padding: 5px 10px; border-top: 1px dotted rgb(0,0,255);
+		border-bottom: 3px double rgb(250,0,0);	
+}
+
+input {
+	border: 5px solid; background-color: rgb(90%, 60%, 0%);
+}
+
+input.btnOk {
+	border: 1px dotted; background-color:  olive;
+}
+
+/* 동적 선택자(움직이는 것들) */
+input:focus {
+	background-color: #aabbcc;
+}
+
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	color : green;
+}
+a:active {
+	color : lime; font-family: 궁서;
+}
+a:hover {
+	font-size: 30px; cursor: crosshair;
+}
+
+i,strong {
+	color: #000; background-color: silver;
+}
+b{font-size: 8px;}
+div b{font-size: 16px;} /* div의 자손 b태그*/
+div > b{font-size: 24px;} /* div의 직계 자식 b태그*/
+div span b{font-size: 32px;} /* 직계가 아니라고 좋아 포함만 되어 있으면 되 */
+
+div b#hi{font-size: 40px;} /* id일 때 #*/
+div b.hello{font-size: 48px;} /* class일 때 .*/
+
+div#pic{
+	height: 130px; background-color: purple; /* 칼럼은 이미지에 덮힘 그래서 보라색아니고 이미지나옴 */
+	background-image: url('../images/snow.png');
+}
+
+img {
+	border: 10px dotted orange; /* 이미지 테투리에 주황색 점을 둘러쌓임 */
+}

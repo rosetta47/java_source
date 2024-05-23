@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+함수란?<br>
+함수(function)란 하나의 특별한 목적의 작업을 수행하도록 설계된 독립적인 블록을 의미합니다.
+이러한 함수는 필요할 때마다 호출하여 해당 작업을 반복해서 수행할 수 있습니다.<br>
+
+<pre>
+함수의 정의
+자바스크립트에서 함수의 정의는 function 키워드로 시작되며, 다음과 같은 구성요소를 가집니다.
+1. 함수의 이름
+2. 괄호 안에 쉼표(,)로 구분되는 함수의 매개변수(parameter)
+3. 중괄호({})로 둘러싸인 자바스크립트 실행문
+
+자바스크립트에서 함수를 정의하는 문법은 다음과 같습니다.
+문법
+function 함수이름([매개변수1, 매개변수2,...]) {
+    함수가 호출되었을 때 실행하고자 하는 실행문;
+	[return 반환값]
+}
+
+내장함수와 사용자 정의 함수로 나뉜다.
+</pre>
+<hr>
+<script type="text/javascript">
+document.write('내장함수 중 문자 관련 함수');
+let str = "Java script Language";
+document.write(`<br>str.charAt(2): ${str.charAt(2)}`);
+document.write(`<br>str.indexOf('v'): ${str.indexOf('v')}`);
+document.write(`<br>str.indexOf('V'): ${str.indexOf('V')}`);//str.indexOf('V'): -1(없으면 -1를 반환한다)
+document.write(`<br>str.substring(1, 3): ${str.substring(1, 3)}`);// 1이상 3미만
+document.write(`<br>str.slice(0, 3): ${str.slice(0, 3)}`);//시작인덱스 0번째부터 3까지 추출: Jav
+//... 등 많음
+
+document.write(`<br>내장함수 중 스타일 관련 함수`);
+document.write(`<br>str.bold(): ${str.bold()}`);
+document.write(`<br>str.big().strike().fontsize(24): ${str.big().strike().fontsize(24)}`);
+// ...
+
+document.write(`<br>내장함수 중 수학 관련 함수`);
+document.write(`<br>Math.abs(-7) : ${Math.abs(-7)}`);
+document.write(`<br>Math.round(3.6) : ${Math.round(3.6)}`);
+document.write(`<br>Math.random() : ${Math.random()}`);// 0~ 1 사이의 난수
+
+document.write(`<br>내장함수 중 날짜 관련 함수`);
+let d = new Date();
+document.write(`<br>Date() : ${Date()}`);
+document.write(`<br>d : ${d}`);
+document.write(`<br>${d.getFullYear()}년 ${d.getMonth()+1}월 ${d.getDate()}일  ${d.getHours()}시 `);
+//${d.getMonth()+1}월  : 월에 +1 해야되
+
+document.write(`<br>내장함수 중 기타 함수`);
+document.write(`<br>parseInt() : ${parseInt('3.4')+5}`);// 버림 : 8
+document.write(`<br>parseFloat() : ${parseFloat('3.4')+5}`); // 실수처리 : 8.4
+document.write(`<br>isNaN() : ${isNaN('3.4')}`);//isNaN : 숫자인지 아닌지를 파악//  false
+document.write(`<br>isNaN() : ${isNaN('삼점사')}`);// true: 숫자가 아니니까 트루임
+
+let ss1 = encodeURI('자바스크립트')
+document.write(`<br>isNaN() : ${ss1}`); //인코딩
+
+let ss2 = decodeURI(ss1)
+document.write(`<br>isNaN() : ${ss2}`); //
+
+// 별도의 창 열기 : open('파일명', 출력형태, '속성')
+open('js1.html', '_blank', 'width=300, height=200, left=200, top=200, resizable=yes');
+//...
+
+
+
+</script>
+</body>
+</html>

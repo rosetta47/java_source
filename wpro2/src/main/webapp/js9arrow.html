@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+const sum1 = function(a, b){
+	return a + b;
+}
+console.log(`두 수의 합은 ${sum1(3,4)}`);
+
+const sum2 = (a, b) => a + b;
+console.log(`두 수의 합은 ${sum2(3,4)}`);// 간결해짐
+
+//let double1 = (n) => n * 2;// 파라미터가 한개이면 생략할 수 있다
+let double1 = n => n * 2; // 이렇게 쓸수 있음
+console.log(double1(3));
+
+let  sayHi = () => '안녕하세요';// 아무것도 없을 때에는 ()생략하면 안되
+console.log(sayHi());
+
+//let age = prompt('나이 입력', 22);
+let age =33;
+let welcome = (age < 30)?() => "안녕":() =>"반가워"; // 삼항연산자 일때 
+console.log(welcome);
+
+/*
+ 콜백 함수는 전달인자로 다른 함수에 전달되는 함수입니다. 
+ 이는 일종의 루틴이나 동작을 완료하기 위해 외부 함수 내부에서 호출됩니다.
+ */
+
+ 
+console.log('--------------');
+//console.clear(); // 콘솔을 깨끗하게 비움
+let sunFunc = (a, b) => { //화살표 함수가 복수일 경우
+	let result = a + b;
+	return result; // 반환값이 있을 떄는 return써
+}
+console.log(`sunFunc 결과 : ${sunFunc(3,4)}`);
+
+console.log('--------------');
+//반복문 처리 : for
+function func(...para){//구조분해 연산자 ..para
+	console.log(para.length,' ', para);
+	
+	for(let i = 0; i <para.length; i++){
+		console.log(para[i]);
+	}
+	for(let s of para){//of: 배열나열할때
+	}
+	
+	//Array.forEach(callbackFn [,arg])
+	para.forEach(function(obj){//forEach : 콜백함수
+		console.log(obj);
+	});
+	
+	(para.forEach((obj) =>console.log(obj)));
+}
+
+func('a','b','c','d');
+
+console.log('-----콜백함수------');
+//setInterval: 어떤 코드를 일정한 시간 간격을 두고 반복해서 실행하고 싶을 때 사용
+//setInterval(() => console.log(new Date()), 2000);//setInterval(수행함수, 시간)
+
+//setTimeout: 어떤 코드를 바로 실행하지 않고 일정 시간 기다린 후 실행해야하는 경우
+//간단한 예로
+//setTimeout(() => console.log("2초 후에 실행됨"), 2000);//setTimeout(수행함수, 시간)
+
+console.log('처리1');
+setTimeout(function() {
+	console.log('처리2');
+},3000);
+console.log('처리3 ');
+
+//argument로 화살표 함수 사용
+function abcFunc(su, f1, f2){
+	if(su % 2 === 0) f1();else f2();
+}
+abcFunc(2, () =>console.log('짝수'),console.log('홀수'));
+
+/*
+function showOk(){
+	console.log('네 동의합니다');
+}
+
+function showCancel(){
+	console.log('아니요');
+}
+function ask(question, yes, no){
+	if(confirm(question)) yes(); else no();{
+		yes();
+	}
+	
+}
+
+ask("동의합니까?", showOk, showCancel);
+*/
+
+
+</script>
+</head>
+<body>
+<h2>화살표 함수</h2>
+ 함수 표현식에 대한 간결한 대안으로, 약간의 의미적 차이와 의도적인 사용상의 제한을 가지고 있습니다.
+</body>
+</html>

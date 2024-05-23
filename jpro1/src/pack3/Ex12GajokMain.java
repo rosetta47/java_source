@@ -8,7 +8,7 @@ public class Ex12GajokMain {
 		System.out.println("가보 : " + gr1.gabo);
 		System.out.println("가훈 : " + gr1.gahun);
 		System.out.println(gr1.say());
-		gr1.eat();
+		gr1.eat(); // 결과값을 반환하지 않음
 		System.out.println("할아버지 나이 : " + gr1.getNai());
 
 		

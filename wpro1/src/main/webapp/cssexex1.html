@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>layout 연습</title>
+<style type="text/css">
+body {
+	border: solid 1px #cccccc; width:700px;
+}
+#tit {text-align: center;}
+
+.head {
+ 	border-width: 1px; width:90%; overflow: auto;
+}
+
+#contents {
+	float: right; width: 50%; background-color: green; height:100px;
+	
+}
+#footer {
+	float: center; font-size: 12px;
+}
+ul {list-style: none;}
+
+</style>
+
+</head>
+<body>
+		<header id="tit">
+			<img title="good" src="images/front.png" width=300px>
+		</header>
+		<nav>
+			<h3 class="menu">메뉴</h3>
+			<ul>
+				<li><a href="https://www.naver.com">여기갈래</a></li>
+				<li><a href="https://www.google.com">이거 좋아</a></li>
+				<li><a href="http://localhost/wpro1/cssexex1.html">홈페이지</a></li>
+			</ul>
+		</nav>
+
+<div id="contents">
+		<iframe src="images/back.png" name="star" width=200px height=200px></iframe>
+		<br />
+		<a href="test2.html" target="star">test2 보기</a>	
+</div>
+	<footer id="footer">
+		<pre>
+(주)에이콘 아카데미 관리:홍길동
+회사 소개. 비즈니스. 운영정책
+</pre>
+	</footer>
+	
+</body>
+</html>

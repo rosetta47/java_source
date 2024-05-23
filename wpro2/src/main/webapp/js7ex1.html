@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+
+</script>
+</head>
+<body>
+<h2>js 연습문제</h2>
+<script type="text/javascript">
+
+// ** 자바스크립트 함수 연습 ** 
+
+// 문1) 두 수를 함수로 입력하여 +, -, *, / 한 결과를 함수 내에서 각각 출력하세요.
+// 아래와 같이 호출하면 결과 출력
+// document.write(showOper(8, 2));
+/* function calc(para1, para2){ // 내가 푼 방식
+//	let para1 = paeseInt(para1);
+//	let para2 = paeseInt(para2);
+	
+	let sum = para1+para2;
+	
+	let minus = para1-para2;
+	
+	let multi = para1 * para2;
+	
+	let div = para1 / para2;
+	
+	document.write(`sum : ${sum}`);
+	document.write(`minus : ${minus}`);
+	document.write(`multi : ${multi}`);
+	document.write(`div : ${div}`);
+	
+	return calc; } */
+
+function showOper(a,b){
+	let calc = [
+		a + b, 
+		a - b,
+		a * b,
+		a / b
+	]
+	
+	return calc;
+}
+document.write(showOper(8, 2));
+
+// 문2) 주어진 배열의 모든 요소의 합을 반환하는 함수를 작성하세요.
+// console.log(sumArray([1, 2, 3, 4, 5]));   // 결과 : 15
+// console.log(sumArray([10, 20, 30]));    // 결과 : 60
+
+/* 함수 사용하기 전에는
+let arr = [1, 2, 3, 4, 5];
+let sum = 0;
+for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+}
+document.write(sum); */ 
+
+function sumArray(arr){
+	let sum = 0;
+	for(let i = 0; i < arr.length; i++){ // i에 let 해야되
+		sum += arr[i];
+	}
+	return sum;
+	document.write('<br>');
+}
+document.write('<br>', sumArray([1, 2, 3, 4, 5]));
+console.log(sumArray([1, 2, 3, 4, 5]));
+console.log(sumArray([10, 20, 30]));
+ 
+
+// 문3) 주어진 숫자의 팩토리얼을 구하는 함수를 작성하세요. 팩토리얼은 1부터 주어진 숫자까지의 모든 숫자의 곱이다.
+// document.write(factorial(5)); // 결과 : 120
+// document.write(factorial(7)); // 결과 : 5040
+
+function factorial(n){
+	let result = 1;
+	for(let i = 1; i <= n; i++){
+		result = result * i
+	}
+	return result;
+	document.write('<br>');	
+}
+ document.write('<br>',factorial(5));// 5!=120
+
+// 문4) 주어진 문자열에서 특정 문자의 개수를 세는 함수를 작성하세요.
+// document.write(countChar("hello", "l"));           // 결과: 2
+// document.write(countChar("javascript", "a"));  // 결과 : 2
+function countChar(str, char) {
+	let count = 0;
+	for (let i = 0; i < str.length; i++) {
+		if (str[i] === char) {// 특정 문자값만 센다
+			count ++;
+			}
+		}
+	return count;	
+}
+document.write('<br>');
+document.write(countChar("hello", "l"));  
+document.write(countChar("javascript", "a"));
+
+// 문5) 주어진 문자열 myString에서 숫자를 추출하여 그 합을 반환하는 함수를 작성하세요.
+// myString = "1a2b3c4d123"
+// document.write(totShow(myString)); // 출력: 16
+// 힌트 : // 문자열을 개별 문자로 나눔     myString.split("");
+
+function totShow(myString) {
+    let chars = myString.split("");
+    let total = 0;
+
+    for (let char of chars) {
+        if (!isNaN(char) && char !== ' ') {//char !== ' ':공백이 아니고
+            total += +char;// parseInt
+        }
+    }
+    return total;
+}
+const myString = "1a2b3c4d123";
+document.write('<br>');
+document.write(totShow(myString)); // 출력 : 16
+
+
+
+
+</script>
+</body>
+</html>
