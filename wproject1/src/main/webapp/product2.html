@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = () => {
+	document.querySelector("#btnOk").onclick = function(){
+		frm.submit();
+	}
+}
+</script>
+</head>
+<body>
+<table>
+	<tr>
+	 	<td>
+			<img src="images/gu.jpg"  width="80%"> 	
+	 	</td>
+	 	<td>
+	 	<pre>
+고구마 애플구마 5kg중상 해남 애플고구마 꿀 세척 해나미
+원산지: 국내산/전남해남
+40,000원
+(100g당 2,000원)
+무료배송 
+수요일 6/5 도착 예정
+판매자: 미래유통영농조합법인
+배송사: CJ 대한통운
+총 중량: 5kg
+개당 중량: 2000g
+종류: 밤고구마
+농산물 생산지: 해남
+보관방법: 실온보관
+	 	</pre>
+	 	</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<form action="Cart" name="frm" method="post">
+				<input type="hidden" name="name" value="애플고구마">
+				<input type="hidden" name="price" value="40000">
+				<input type="button" id="btnOk" value="장바구니에 상품 담기">
+				<input type="button" value="홈으로 이동" onclick="history.back()">
+			</form>
+		</td>
+	</tr>
+
+</table>
+</body>
+</html>
