@@ -25,10 +25,8 @@ public class Report extends HttpServlet {
 		
 		session.removeAttribute("list");//해당 고객의 세션 삭제
 		response.sendRedirect("myjumsu.html");// myjumsu로 돌아가
-
 	}	
 	
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
@@ -47,24 +45,22 @@ public class Report extends HttpServlet {
 		if(jlist == null) jlist = new ArrayList<Jumsus>();
 		
 		for(int i =0; i<jlist.size(); i++) {
-			Jumsus jumsu = (Jumsus)jlist.get(i);
+			Jumsus jumsu = (Jumsus)jlist.get(i);// 점수를 읽음
 			
 			if(bunho.equals(jumsu.getBunho())) { // 번호 중복 체크
-				response.sendRedirect("myjumsu.html");//// myjumsu로 돌아가
-				return;
-			}else {
 				out.println("중복되었습니다");
+				response.sendRedirect("myjumsu.html"); // myjumsu로 돌아가
+				return;
 			}
 		}
 		
 		jlist.add(new Jumsus(bunho, irum, kor, eng));
-		session.setAttribute("list", jlist);//
+		session.setAttribute("list", jlist);
 		
 		out.println("<html><body>");
 		out.println("<br> 학생들 성적표");
 		out.println("<br><table>");
 		out.println("<tr><th>번호</th><th>이름</th><th>국어</th><th>영어</th><th>총점</th></tr>");
-		
 		
 		int count = 0;
 		for(int i =0; i<jlist.size(); i++) {
@@ -78,12 +74,12 @@ public class Report extends HttpServlet {
 			
 			count++;
 		}
-		out.println("<br>인원수:" + count);
 		
-		out.println("<br>[<a href='myjumsu.html'>새로 입력</a>] ");
-		out.println("[<a href='Report'>세션 삭제</a>]<br>");
 		
 	out.println("</table>");
+	out.println("<br>인원수:" + count);
+	out.println("<br>[<a href='myjumsu.html'>새로 입력</a>] ");
+	out.println("[<a href='Report'>세션 삭제</a>]<br>");
 	out.println("</body></html>");
 	out.close();
 }
