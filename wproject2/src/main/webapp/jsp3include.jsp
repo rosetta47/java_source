@@ -15,6 +15,17 @@ include 지시어 : 여러 jsp 파일에서 공통으로 사용할 부분을 별
 여기는
  본문이야
 </pre>
+--- 여기는 include action tag로 파일 포함 결과 출력 지역 ---<br>
+<jsp:include page="jsp3tag1.jsp" />
+<br>
+뭔가를 작업하는 중
+<br>
+<div style="color:violet; font-size: 30px">
+	<jsp:include page="jsp3tag2.jsp">
+		<jsp:param value="good" name="msg"/>
+	</jsp:include>
+</div>
+
 
 <%@include file="jsp3bottom.jsp" %>
 </body>
