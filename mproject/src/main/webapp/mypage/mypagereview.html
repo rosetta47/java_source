@@ -6,21 +6,30 @@
 <title>사용자 정보</title>
 </head>
 <body>
-    <div class="profile">
-        <h2>사용자 정보</h2>
-        <div class="username">
-            <img src="../image/11.jpeg" alt="사용자 프로필 이미지입니다." class="profile_img"><br>
-            <b>아이디:</b> <span id="username">사용자 아이디</span>
-        </div>
-        <div class="follow_info">
-            <button id="following">팔로잉:0 </button>
-            <b>팔로워:</b> <span id="follower">0</span>
-            
-        </div>
-        <div class="review">
-            <h2>내가 쓴 리뷰</h2>
-           
-        </div>
-    </div>
+	<div id="header">
+		<a href="mainpage">HOME</a> 
+		<a href="community">Community</a>
+	</div>
+	
+		<h2>사용자 정보</h2>
+		<div class="username">
+			<div id="left">
+				<img src="../image/11.jpeg" alt="사용자 프로필 이미지입니다."
+					class="profile_img"><br>
+				<ul>
+					<li class="list" id="userid">아이디정보</li>
+					<li class="list" id="follower"><a href="follwer.html">팔로워:0</a></li>
+					<li class="list" id="following"><a href="following.html">팔로잉:0</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="review">
+			<div id="right">
+				<h2>내가 쓴 리뷰</h2>
+				<div id="iframe">
+					<iframe src="내가쓴리뷰게시판" width="99%" height="225px"></iframe>
+				</div>
+			</div>
+		</div>
 </body>
 </html>

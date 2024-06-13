@@ -6,7 +6,7 @@
 <jsp:useBean id="dto" class="pack.board.BoardDto" />
 
 <%
-int spage =1, pageSu = 0;//페이징을 하기 위한 변수
+int spage =1, pageSu = 0;//페이징을 하기 위한 변수 초기화
 int start, end;// << 1, 2, 3 >>
 %>
 
@@ -35,7 +35,7 @@ window.onload = () =>{
 <table>
  <tr>
  	<td>
- 		<a href="../index.html">메인으로</a>
+ 		<a href="../guest/guest_index.jsp">메인으로</a>
  		<a href="boardlist.jsp?page=1">최근목록</a>&nbsp;
  		<a href="boardwrite.jsp">새글작성</a>&nbsp;
  		<a href="#" onclick="window.open('admin.jsp','','width=300,height=150,top=200,left=300')">관리자용</a>&nbsp;
@@ -46,12 +46,15 @@ window.onload = () =>{
  			</tr>
  		<%
  	
- 		
+ 		// paging 처리의 spage값 얻기
  		try{
+ 			//?page=1 이런 형식일 경우
  			spage = Integer.parseInt(request.getParameter("page"));
  		}catch(Exception e){
+ 			//?page=1 이런 형식이 아닌 경우
  			spage = 1;
  		}
+ 		//?page=-1 (음수)형식으로 적어준 경우 
  		if(spage <= 0) spage=1;
  		
  		// 검색일 경우 ------------------
@@ -63,17 +66,25 @@ window.onload = () =>{
  		pageSu = boardMgr.getPageSu(); // 전체 페이지 수 얻기
  		
  		
- 		//ArrayList<BoardDto> list = boardMgr.getDataAll(spage);
- 		ArrayList<BoardDto> list = boardMgr.getDataAll(spage, stype, sword); // 페이지, 검색도 같이 처리
+ 		//ArrayList<BoardDto> list = boardMgr.getDataAll(spage); //검색이 없는 경우
+ 		ArrayList<BoardDto> list = boardMgr.getDataAll(spage, stype, sword); // 검색이 있는 경우:페이지, 검색도 같이 처리
  		
  		for(int i=0; i<list.size(); i++){
  			dto = (BoardDto)list.get(i);
+ 			// 댓글 들여쓰기 준비 --------
+ 			int nst = dto.getNested();
+ 			String tab = "";
+ 			for(int k=0; k < nst; k++){
+ 				tab += "&nbsp;&nbsp;";
+ 			}
+ 			// ------------------------------
+ 			
  			%>
  			<tr>
  				<td><%=dto.getNum() %></td>
  				
  				<td>
- 					<a href="boardcontent.jsp?num=<%=dto.getNum()%>&page=<%=spage%>"><%=dto.getTitle()%></a>
+ 				<%=tab %><a href="boardcontent.jsp?num=<%=dto.getNum()%>&page=<%=spage%>"><%=dto.getTitle()%></a>
  				</td>
  				
  				<td><%=dto.getName() %></td>
