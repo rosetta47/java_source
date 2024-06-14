@@ -8,8 +8,8 @@
 <jsp:useBean id="memberMgr" class="pack.member.MemberMgr" />
 
 <%
-String id = (String)session.getAttribute("idKey");
-boolean b = memberMgr.memberUpdate(memberBean, id);
+String id = (String)session.getAttribute("idkey");
+boolean b = memberMgr.memberUpdate(memberBean, id); 
  
 if(b){
 %>

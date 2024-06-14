@@ -16,7 +16,7 @@
 <body>
 <h2>** 관리자 - 전체 회원관리 **</h2>
 <div style="text-align: center;">
-<%@ include file="admin_top.jsp" %>
+<%@ include file="admin_top.jsp" %> <!-- 세션을 달고 가는 거임(include) -->
 </div>
 
 <table style="width: 90%">
@@ -42,7 +42,9 @@
 <%@ include file="admin_bottom.jsp" %>
 
 <form action="memberupdate_admin.jsp" name="updateFrm" method="post">
-<input type="hidden" name="id">
+<input type="hidden" name="id"> 
+<!-- 멤버아이디를 가지고 수정하려고 할때 위에 memUpdate(js)에서 함수를 불러서 submit으로
+ 수정한 정보를 가지고 memberupdate_admin.jsp로 가는 흐름임 -->
 </form>
 </body>
 </html>
