@@ -4,7 +4,7 @@
 String memid = (String)session.getAttribute("idkey");
 
 String log = ""; //로그인
-if(memid == null)
+if(memid == null)  
 	log = "<a href='../member/login.jsp'>로그인</a>";
 else
 	log = "<a href='../member/logout.jsp'>로그아웃</a>";

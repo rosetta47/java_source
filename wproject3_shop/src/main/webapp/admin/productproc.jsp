@@ -6,7 +6,7 @@
 request.setCharacterEncoding("utf-8");
 String flag = request.getParameter("flag");
 boolean result = false;
-
+  
 // contoller 역할
 if(flag.equals("insert")){
 	result = productMgr.insertProduct(request); 
@@ -20,7 +20,7 @@ if(flag.equals("insert")){
 
 if(result){
 %>
-	<script>
+	<script> 
 		alert("정상 처리되었습니다");
 		location.href="productmanager.jsp"
 	</script>

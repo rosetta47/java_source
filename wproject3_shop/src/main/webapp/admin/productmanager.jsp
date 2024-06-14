@@ -40,14 +40,14 @@
 	</tr>
 	<%		
 		}
-	}
+	}  
 %>
 	</tr>
 	<tr>
 		<td colspan="6">
 			[<a href="productinsert.jsp">상품 등록</a>]
 		</td>
-	</tr>
+	</tr> 
 </table>
 <%@ include file="admin_bottom.jsp" %>
 

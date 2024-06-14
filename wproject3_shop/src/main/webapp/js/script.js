@@ -104,7 +104,7 @@ function productUpdate(no){
 		document.updateForm.no.value = no;
 		document.updateForm.submit();
 	}
-}
+} 
 function productDelete(no){
 	if(confirm("정말 삭제할까요?")){
 		document.delForm.no.value = no;

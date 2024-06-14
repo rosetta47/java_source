@@ -21,7 +21,7 @@
 			<h2 style="text-align: center; color: red;">관리자 페이지</h2>
 			<br><br><br><br>
 		</td>
-	</tr>
+	</tr> 
 </table>
 <%@ include file="admin_bottom.jsp" %>
 </body>

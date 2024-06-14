@@ -111,7 +111,7 @@ public class ProductMgr {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, no);
 			rs = pstmt.executeQuery();
-			
+			  
 			if(rs.next()) {
 				dto = new ProductDto();
 				dto.setNo(rs.getInt("no"));
@@ -120,7 +120,7 @@ public class ProductMgr {
 				dto.setDetail(rs.getString("detail"));
 				dto.setSdate(rs.getString("sdate"));
 				dto.setStock(rs.getString("stock"));
-				dto.setImage(rs.getString("image"));
+			 	dto.setImage(rs.getString("image"));
 			}
 			
 		} catch (Exception e) {

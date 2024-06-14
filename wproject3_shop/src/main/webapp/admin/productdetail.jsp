@@ -45,7 +45,7 @@ ProductDto dto = productMgr.getProduct(no);
 		</td>
 		<td  style="width:30%">
 			<b>* 상품 설명 *</b>
-			<br>
+	  		<br>
 			<%=dto.getDetail() %>
 		</td>
 		
@@ -56,10 +56,10 @@ ProductDto dto = productMgr.getProduct(no);
 			<a href="javascript:productDelete()">삭제하기</a>
 		</td>
 	</tr>
-</table> 
-	
+</table>        
+	        
 	<%@ include file="admin_bottom.jsp" %>
-	
+	 
 	
 </body>
 </html>

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head>  
 <meta charset="UTF-8">
 <title>상품 관리</title>
 <link href="../css/style.css" rel="stylesheet" type="text/css">
@@ -15,7 +15,7 @@
 	<tr>
 		<td colspan="2">** 상품 등록 ** </td>
 	</tr>
-	<tr>
+	<tr> 
 		<td>상품명</td>
 		<td><input type="text" name="name"></td>
 	</tr>

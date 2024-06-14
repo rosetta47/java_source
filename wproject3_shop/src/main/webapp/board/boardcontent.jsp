@@ -3,7 +3,7 @@
 <jsp:useBean id="boardMgr" class="pack.board.BoardMgr" />
 <jsp:useBean id="dto" class="pack.board.BoardDto" />
 
-<%
+<%    
 String num = request.getParameter("num");
 String spage = request.getParameter("page");
 

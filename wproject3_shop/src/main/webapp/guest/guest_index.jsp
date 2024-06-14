@@ -10,7 +10,7 @@
 </head>
 <body>
 <table>
-	<tr>
+	<tr>  
 		<td style="font-size: 24px;">특별 상품 전문 쇼핑몰</td>
 	</tr>
 </table>

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <hr style="width: 80%">
 <table>
-	<tr>
+	<tr>  
 		<td style="text-align: center;">
 		<b>고객님 환영합니다</b> (주)에이콘 아카데미 담당:hyunjung ☏02-111-1111
 		</td>

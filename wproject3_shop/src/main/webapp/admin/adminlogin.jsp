@@ -26,7 +26,7 @@ window.onload = function(){
   	<td>관리자 id : </td>
   	<td><input type="text" name="adminid"></td>
   </tr>
-  <tr>
+  <tr> 
   	<td>password : </td>
   	<td><input type="text" name="adminpasswd"></td>
   </tr>

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <jsp:useBean id="memberMgr" class="pack.member.MemberMgr" />
 
-<%
+<% 
 request.setCharacterEncoding("utf-8");
 String adminid = request.getParameter("adminid");
 String adminpasswd = request.getParameter("adminpasswd");
