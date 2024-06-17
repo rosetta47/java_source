@@ -1,9 +1,9 @@
-<%@page import="pack.SangpumDto"%>
+<%@page import="pack.order.SangpumDto"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  
-<jsp:useBean id="ConnClass3" class="pack.ConnClass3" ></jsp:useBean>
+<jsp:useBean id="3 ConnClas" class="w pack.order.ConnClas" ></jsp:useBean>
 <!DOCTYPE html>
 <html>
 <head>

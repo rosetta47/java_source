@@ -4,17 +4,17 @@
 
 <%
 request.setCharacterEncoding("utf-8");
-String flag = request.getParameter("flag");
+String flag = request.getParameter("flag");//flag는 기준값
 boolean result = false;
   
 // contoller 역할
 if(flag.equals("insert")){
 	result = productMgr.insertProduct(request); 
 }else if(flag.equals("update")){
-	//result = productMgr.updateProduct(request); 
+	result = productMgr.updateProduct(request);  
 }if(flag.equals("delete")){
-	//result = productMgr.deleteProduct(request); 
-}else{
+	result = productMgr.deleteProduct(request.getParameter("no")); 
+}else{ 
 	response.sendRedirect("productmanager.jsp");
 }
 

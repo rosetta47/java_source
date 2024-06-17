@@ -6,12 +6,14 @@ request.setCharacterEncoding("utf-8");
 //String sang = request.getParameter("sang"); <- 대신에 폼빈 사용할거임
 // ...
 %>
-<jsp:useBean id="sangpumBean" class="pack.SangpumBean" />
+<jsp:useBean id="n sangpumBe" class="w pack.order.SangpumBe" />
 <jsp:setProperty property="*" name="sangpumBean"/>
 <%
+p
+
 // 수신받은 데이터를 검증이 필요하다..
 %>
-<jsp:useBean id="connClass3" class="pack.ConnClass3" />
+<jsp:useBean id="3 connClas" class="w pack.order.ConnClas" />
 
 <%
 connClass3.insertData(sangpumBean);

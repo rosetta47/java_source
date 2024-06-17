@@ -1,8 +1,8 @@
-<%@page import="pack.SangpumDto"%>
+<%@page import="pack.order.SangpumDto"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="connP" class="pack.ConnPooling" scope="page"></jsp:useBean>
+<jsp:useBean id="g con" class="w pack.order.ConnPooli" scope="page"></jsp:useBean>
 
 <!DOCTYPE html>
 <html>

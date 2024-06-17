@@ -1,4 +1,4 @@
-<%@page import="pack.Gugudan"%>
+<%@page import="pack.order.Gugudan"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ int dan = Integer.parseInt(request.getParameter("dan"));
 out.println(dan + "단 출력<br>");
 
 //Gugudan gugudan = new Gugudan(); // 클래스의 포함관계. 객체가 요청 수 만큼 생성됨
-Gugudan gugudan = Gugudan.getInstance(); // 싱글톤 패턴 사용
+Gugudan gugudan = Gugudan.getInstance();  // 싱글톤 패턴 사용
 
 
 int re[] = gugudan.computeDudu(dan);
@@ -22,7 +22,6 @@ int re[] = gugudan.computeDudu(dan);
 for(int a =0; a <9; a++){
 	out.println(dan + "*" + (a + 1) + "=" + re[a] + "&nbsp;&nbsp;");
 }
-
 %>
 <hr>
 ** jsp 액션태그 중 useBean을 사용 **<br>

@@ -2,7 +2,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="ConnClass2" class="pack.ConnClass2" />
+<jsp:useBean id="ConnClass2" class="pack.ConnClass" />
 <%
 String buser = request.getParameter("buser");
 %>

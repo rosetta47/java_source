@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <% String code = request.getParameter("code"); %>
-<jsp:useBean id="connP" class="pack.ConnPooling" scope="page" />
+<jsp:useBean id="g con" class="w pack.order.ConnPooli" scope="page" />
 
 <%
 if(connP.deleteData(code))
