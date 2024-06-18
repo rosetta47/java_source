@@ -21,6 +21,7 @@ public class ProductMgrex1 {
 		try {
 			Context context = new InitialContext();
 			ds = (DataSource)context.lookup("java:comp/env/jdbc_maria");
+			
 		} catch (Exception e) {
 			System.out.println("DB 연결 실패 : " + e);
 		}
@@ -34,6 +35,7 @@ public class ProductMgrex1 {
 			String sql = "select * from product";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
+			
 			while(rs.next()) {
 				ProductDtoex1 dto = new ProductDtoex1();
 				dto.setProduct_name(rs.getString("product_name"));

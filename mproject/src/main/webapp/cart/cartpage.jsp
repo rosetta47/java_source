@@ -24,6 +24,7 @@
 		<% 
 		HttpSession session2 = request.getSession();
 		ArrayList<ProductDtoex1> plist = ProductMgrex1.getProductAll();
+
 		for (ProductDtoex1 p : plist) {
 			//System.out.println(p.getProduct_name());
 		%>
