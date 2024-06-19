@@ -1,3 +1,4 @@
+<%@page import="java.util.Map"%>
 <%@page import="pack.product.ProductDto"%>
 <%@page import="pack.product.ProductMgr"%>
 <%@page import="pack.order.OrderBean"%>
@@ -25,7 +26,8 @@
 	</tr>
 <%
 int totalPrice = 0; // 총계
-Hashtable hCart = cartMgr.getCartList();
+// Hashtable hCart = cartMgr.getCartList();
+Hashtable<String, OrderBean> hCart = (Hashtable<String, OrderBean>)cartMgr.getCartList();
 
 // if(hCart.isEmpty(){ // 이렇게 써도 되
 if(hCart.size() == 0){ // 카드에 아무것도 안담겨 있다면
@@ -34,7 +36,11 @@ if(hCart.size() == 0){ // 카드에 아무것도 안담겨 있다면
 		<td colspan="5">주문 건수가 없어요</td>
 	</tr>
 <%
-}else{//Enumeration : 반복처리 할 때 씀 (Map 타입의 컬렉션 읽어서 반복처리)
+}else{
+	
+	/* 옛날 방식임
+	//Enumeration : 반복처리 할 때 씀 (Map 타입의 컬렉션 읽어서 반복처리)
+}
 	Enumeration enu = hCart.keys();
 	while(enu.hasMoreElements()){
 		OrderBean orderbean = (OrderBean)hCart.get(enu.nextElement()); // 하나씩 뽑아내
@@ -43,6 +49,18 @@ if(hCart.size() == 0){ // 카드에 아무것도 안담겨 있다면
 		int quantity = Integer.parseInt(orderbean.getQuantity());
 		int subTotal = price * quantity; // 소계
 		totalPrice += subTotal; // 총계
+		*/
+		
+		// Map.Entry를 이용하면 Map에 저장된 모든 key-value 쌍을 
+		// 각각의 key-value를 갖고 있는 하나의 객체로 얻을 수 있다. (최신 방식임)
+		for(Map.Entry<String, OrderBean> entry : hCart.entrySet()){
+			OrderBean orderbean = entry.getValue(); // value값을 가져야되서 
+			
+			ProductDto product = productMgr.getProduct(orderbean.getProduct_no()); // 상품정보 읽음
+			int price = Integer.parseInt(product.getPrice()); // string price라서 형변환
+			int quantity = Integer.parseInt(orderbean.getQuantity());
+			int subTotal = price * quantity; // 소계
+			totalPrice += subTotal; // 총계
 		
 %>
 <form action="cartproc.jsp" method="get">

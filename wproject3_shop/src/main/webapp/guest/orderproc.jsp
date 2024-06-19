@@ -1,3 +1,4 @@
+<%@page import="java.util.Map"%>
 <%@page import="pack.order.OrderBean"%>
 <%@page import="java.util.Enumeration"%>
 <%@page import="java.util.Hashtable"%>
@@ -8,9 +9,9 @@
 <jsp:useBean id="productMgr" class="pack.product.ProductMgr" />
 
 <%
-Hashtable hCart = cartMgr.getCartList();
-
-Enumeration enu = hCart.keys();
+//Hashtable hCart = cartMgr.getCartList();
+//Enumeration enu = hCart.keys();
+Hashtable<String, OrderBean> hCart = (Hashtable<String, OrderBean>)cartMgr.getCartList();
 
 if(hCart.isEmpty()){
 %>
@@ -21,13 +22,21 @@ if(hCart.isEmpty()){
 
 <%	
 }else{
+	/*
 	while(enu.hasMoreElements()){ // 일단 자료를 읽어옴
 		OrderBean orderBean = (OrderBean)hCart.get(enu.nextElement());
-		orderMgr.insertOrder(orderBean);    // insertOrder을 만들어서 주문 정보를 DB에 저장함
+		orderMgr.insertOrder(orderBean);     // insertOrder을 만들어서 주문 정보를 DB에 저장함
 		productMgr.reduceProduct(orderBean);// 주문 수량 만큼 재고량 빼기
 		cartMgr.deleteCart(orderBean); 
 		
-	}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+	}   
+	*/
+	for(Map.Entry<String, OrderBean> entry : hCart.entrySet()){
+		OrderBean orderBean = entry.getValue();
+		orderMgr.insertOrder(orderBean);
+		productMgr.reduceProduct(orderBean);// 주문 수량 만큼 재고량 빼기
+		cartMgr.deleteCart(orderBean);
+	}
 %>
 	<script>
 		alert("주문 처리가 잘 되었습니다.\n고객님 감사합니다");
