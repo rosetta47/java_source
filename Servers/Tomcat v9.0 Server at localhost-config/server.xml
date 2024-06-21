@@ -160,7 +160,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="wproject3_shop" path="/wproject3_shop" reloadable="true" source="org.eclipse.jst.jee.server:wproject3_shop"/><Context docBase="mproject" path="/mproject" reloadable="true" source="org.eclipse.jst.jee.server:mproject"/><Context docBase="wpro1" path="/wpro1" reloadable="true" source="org.eclipse.jst.jee.server:wpro1"/><Context docBase="wproject1" path="/wproject1" reloadable="true" source="org.eclipse.jst.jee.server:wproject1"/></Host>
+      <Context docBase="wproject3_shop" path="/wproject3_shop" reloadable="true" source="org.eclipse.jst.jee.server:wproject3_shop"/><Context docBase="mproject" path="/mproject" reloadable="true" source="org.eclipse.jst.jee.server:mproject"/><Context docBase="wpro1" path="/wpro1" reloadable="true" source="org.eclipse.jst.jee.server:wpro1"/><Context docBase="wproject1" path="/wproject1" reloadable="true" source="org.eclipse.jst.jee.server:wproject1"/><Context docBase="wproject4el" path="/wproject4el" reloadable="true" source="org.eclipse.jst.jee.server:wproject4el"/></Host>
     </Engine>
   </Service>
 </Server>
