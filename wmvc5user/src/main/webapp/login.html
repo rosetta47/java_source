@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	let btnLogin = document.querySelector("#btnLogin");
+	btnLogin.addEventListener("click", loginFunc, false);
+	
+	document.querySelector("#btnInsert").
+	addEventListener("click", insertFunc, false);
+	
+}
+
+function loginFunc(){
+	//alert("a");
+	//입력자료 검사
+	if(frm.userid.value === ""){
+		alert("아이디 입력!");
+		frm.userid.focus();
+		return false;
+	}
+	if(frm.password.value === ""){
+		alert("비밀번호 입력!");
+		frm.password.focus(); //password에 포커스를 댐
+		return false;
+	}
+	//위에꺼를 무사히 통과했으면
+	frm.action="login.m2"; //서블릿으로 만들어 컨트롤러이니까
+	frm.submit();
+}
+function insertFunc(){
+	//alert("b");
+	frm.action="insert.jsp";
+	frm.submit();
+}
+</script>
+</head>
+<body>
+<h3>* 사용자 관리 로그인(MVC패턴 사용) *</h3>
+<form name="frm" method="post"> <!-- 자바스크립트로 보내 name="frm" -->
+아 이 디 : <input type="text" name="userid"><br>
+비밀번호 : <input type="text" name="password"><br>
+<input type="button" value="로 그 인" id="btnLogin"><br>
+<input type="button" value="회원가입" id="btnInsert"><br>
+ 
+</form>
+</body>
+</html>
